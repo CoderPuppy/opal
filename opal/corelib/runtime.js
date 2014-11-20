@@ -809,11 +809,7 @@
   };
 
   Opal.is_a = function(object, klass) {
-    if (object.$$meta === klass) {
-      return true;
-    }
-
-    var search = object.$$class;
+    var search = object.$$meta || object.$$class;
 
     while (search) {
       if (search === klass) {
